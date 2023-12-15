@@ -26,7 +26,7 @@ function metodoGet($query){
     try {
         conectar();
         $sentencia=$GLOBALS['pdo']->prepare($query);
-        $sentencia=setFetchMode(PDO::FETCH_ASSOC);
+        $sentencia->setFetchMode(PDO::FETCH_ASSOC);
         $sentencia->execute();
         desconectar();
         return $sentencia;
@@ -76,3 +76,4 @@ function metodoDelete($query){
         die("Error!: ". $e);
     }
 }
+?>
